@@ -1,4 +1,4 @@
-# 📚 Mes Travaux Pratiques et Dirigés en Informatique - 2024
+# 📚 Mes Travaux Pratiques et Dirigés en Informatique - 2024 / 2025
 
 Bienvenue dans mon dépôt Git où je stocke tous mes **TP** et **TD** d'informatique pour cette année universitaire. Ce dépôt me permet de garder une trace de mon travail, d'organiser mes fichiers et de suivre ma progression.
 
