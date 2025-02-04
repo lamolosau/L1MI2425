@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Périodique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #f9f9f9;
+        }
+
+        td:hover {
+            background-color: #e0e0e0;
+        }
+
+        .empty {
+            background-color: transparent;
+            border: none;
+            cursor: default;
+        }
+
+        #info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            background-color: #f0f0f0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<h1>Tableau Périodique</h1>
+<table>
+    <tr>
+        <td onclick="showInfo('Hydrogène', 'H', 1)">H</td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td onclick="showInfo('Hélium', 'He', 2)">He</td>
+    </tr>
+    <tr>
+        <td onclick="showInfo('Lithium', 'Li', 3)">Li</td>
+        <td onclick="showInfo('Béryllium', 'Be', 4)">Be</td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td onclick="showInfo('Bore', 'B', 5)">B</td>
+        <td onclick="showInfo('Carbone', 'C', 6)">C</td>
+        <td onclick="showInfo('Azote', 'N', 7)">N</td>
+        <td onclick="showInfo('Oxygène', 'O', 8)">O</td>
+        <td onclick="showInfo('Fluor', 'F', 9)">F</td>
+        <td onclick="showInfo('Néon', 'Ne', 10)">Ne</td>
+    </tr>
+    <tr>
+        <td onclick="showInfo('Sodium', 'Na', 11)">Na</td>
+        <td onclick="showInfo('Magnésium', 'Mg', 12)">Mg</td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td onclick="showInfo('Aluminium', 'Al', 13)">Al</td>
+        <td onclick="showInfo('Silicium', 'Si', 14)">Si</td>
+        <td onclick="showInfo('Phosphore', 'P', 15)">P</td>
+        <td onclick="showInfo('Soufre', 'S', 16)">S</td>
+        <td onclick="showInfo('Chlore', 'Cl', 17)">Cl</td>
+        <td onclick="showInfo('Argon', 'Ar', 18)">Ar</td>
+    </tr>
+    <tr>
+        <td onclick="showInfo('Potassium', 'K', 19)">K</td>
+        <td onclick="showInfo('Calcium', 'Ca', 20)">Ca</td>
+        <td onclick="showInfo('Scandium', 'Sc', 21)">Sc</td>
+        <td onclick="showInfo('Titane', 'Ti', 22)">Ti</td>
+        <td onclick="showInfo('Vanadium', 'V', 23)">V</td>
+        <td onclick="showInfo('Chrome', 'Cr', 24)">Cr</td>
+        <td onclick="showInfo('Manganèse', 'Mn', 25)">Mn</td>
+        <td onclick="showInfo('Fer', 'Fe', 26)">Fe</td>
+        <td onclick="showInfo('Cobalt', 'Co', 27)">Co</td>
+        <td onclick="showInfo('Nickel', 'Ni', 28)">Ni</td>
+        <td onclick="showInfo('Cuivre', 'Cu', 29)">Cu</td>
+        <td onclick="showInfo('Zinc', 'Zn', 30)">Zn</td>
+        <td onclick="showInfo('Gallium', 'Ga', 31)">Ga</td>
+        <td onclick="showInfo('Germanium', 'Ge', 32)">Ge</td>
+        <td onclick="showInfo('Arsenic', 'As', 33)">As</td>
+        <td onclick="showInfo('Sélénium', 'Se', 34)">Se</td>
+        <td onclick="showInfo('Brome', 'Br', 35)">Br</td>
+        <td onclick="showInfo('Krypton', 'Kr', 36)">Kr</td>
+    </tr>
+    <tr>
+        <td onclick="showInfo('Rubidium', 'Rb', 37)">Rb</td>
+        <td onclick="showInfo('Strontium', 'Sr', 38)">Sr</td>
+        <td onclick="showInfo('Yttrium', 'Y', 39)">Y</td>
+        <td onclick="showInfo('Zirconium', 'Zr', 40)">Zr</td>
+        <td onclick="showInfo('Niobium', 'Nb', 41)">Nb</td>
+        <td onclick="showInfo('Molybdène', 'Mo', 42)">Mo</td>
+        <td onclick="showInfo('Technétium', 'Tc', 43)">Tc</td>
+        <td onclick="showInfo('Ruthénium', 'Ru', 44)">Ru</td>
+        <td onclick="showInfo('Rhodium', 'Rh', 45)">Rh</td>
+        <td onclick="showInfo('Palladium', 'Pd', 46)">Pd</td>
+        <td onclick="showInfo('Argent', 'Ag', 47)">Ag</td>
+        <td onclick="showInfo('Cadmium', 'Cd', 48)">Cd</td>
+        <td onclick="showInfo('Indium', 'In', 49)">In</td>
+        <td onclick="showInfo('Étain', 'Sn', 50)">Sn</td>
+        <td onclick="showInfo('Antimoine', 'Sb', 51)">Sb</td>
+        <td onclick="showInfo('Tellure', 'Te', 52)">Te</td>
+        <td onclick="showInfo('Iode', 'I', 53)">I</td>
+        <td onclick="showInfo('Xénon', 'Xe', 54)">Xe</td>
+    </tr>
+    <tr>
+        <td onclick="showInfo('Césium', 'Cs', 55)">Cs</td>
+        <td onclick="showInfo('Baryum', 'Ba', 56)">Ba</td>
+        <td class="empty"></td>
+        <td onclick="showInfo('Hafnium', 'Hf', 72)">Hf</td>
+        <td onclick="showInfo('Tantale', 'Ta', 73)">Ta</td>
+        <td onclick="showInfo('Tungstène', 'W', 74)">W</td>
+        <td onclick="showInfo('Rhénium', 'Re', 75)">Re</td>
+        <td onclick="showInfo('Osmium', 'Os', 76)">Os</td>
+        <td onclick="showInfo('Iridium', 'Ir', 77)">Ir</td>
+        <td onclick="showInfo('Platine', 'Pt', 78)">Pt</td>
+        <td onclick="showInfo('Or', 'Au', 79)">Au</td>
+        <td onclick="showInfo('Mercure', 'Hg', 80)">Hg</td>
+        <td onclick="showInfo('Thallium', 'Tl', 81)">Tl</td>
+        <td onclick="showInfo('Plomb', 'Pb', 82)">Pb</td>
+        <td onclick="showInfo('Bismuth', 'Bi', 83)">Bi</td>
+        <td onclick="showInfo('Polonium', 'Po', 84)">Po</td>
+        <td onclick="showInfo('Astate', 'At', 85)">At</td>
+        <td onclick="showInfo('Radon', 'Rn', 86)">Rn</td>
+    </tr>
+</table>
+
+<div id="info">Cliquez sur un élément pour voir ses informations.</div>
+
+<script>
+    function showInfo(nom, symbole, numero) {
+        const info = document.getElementById('info');
+        info.innerHTML = `<strong>${nom}</strong> (Symbole: ${symbole}, Numéro atomique: ${numero})`;
+    }
+</script>
+</body>
+</html>
