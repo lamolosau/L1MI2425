@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Un protocole pour jouer à la bataille navale</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Un protocole pour jouer à la bataille navale</h1>
+</header>
+<p>On se propose de créer en Python un jeu de bataille navale à deux
+joueurs en réseau. Les échéances sont les suivantes :</p>
+<ul>
+<li><a href="#protocole">Mise au point du protocole</a> : pour le
+04/11/2024</li>
+<li><a href="#implementation">Implémentation</a> : pour le
+06/12/2024</li>
+<li><a href="#soutenance">Soutenance</a> : le 10/01/2025</li>
+</ul>
+<h2 id="règles-du-jeu">Règles du jeu</h2>
+<p>La bataille navale est un jeu qui se joue à deux joueurs à tour de
+rôle, nous en rappelons les règles ici. Chaque joueur dispose sur une
+grille 10x10 qu’il est le seul à voir ses bateaux. Il doit disposer en
+tout cinq bateaux qui occupent chacun un nombre de cases différent mais
+toujours aligné (sur une ligne ou une colonne) :</p>
+<ul>
+<li>un porte-avion (<em>carrier</em>) qui occupe 5 cases,</li>
+<li>un cuirassé (<em>battleship</em>) qui occupe 4 cases,</li>
+<li>un contre-torpilleur (<em>destroyer</em>) qui occupe 3 cases,</li>
+<li>un sous-marin (<em>submarine</em>) qui occupe 3 cases,</li>
+<li>un patrouilleur (<em>patrol boat</em>) qui occupe 2 cases.</li>
+</ul>
+<p>Voici un exemple de grille remplie par un joueur, où chaque bateau
+est désigné par la première lettre de son nom anglais (C pour carrier
+par exemple).</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">E</th>
+<th style="text-align: center;">F</th>
+<th style="text-align: center;">G</th>
+<th style="text-align: center;">H</th>
+<th style="text-align: center;">I</th>
+<th style="text-align: center;">J</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">P</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>À tour de rôle, les joueurs annoncent une position (par exemple B2).
+Si le joueur adverse n’a aucun bateau situé sur cette position, il doit
+déclarer “Raté”. Si au contraire, l’un de ses bateaux est situé sur
+cette position, il doit déclarer “Touché” et son bateau est touché à
+cette position. Si un bateau est touché sur toutes ses positions, le
+joueur doit déclarer “Coulé” pour indiquer que son bateau a été
+complètement détruit. Le premier joueur ayant détruit tous les bateaux
+du joueur adverse gagne la partie.</p>
+<p>Nous vous fournissons <a href="bataille_navale.py">un exemple
+d’implémentation du jeu de la bataille navale</a> qui se joue sur un
+seul écran. La grille de chaque joueur est affichée à l’écran ainsi que
+les résultats des différentes attaques : une croix rouge dans une
+position indique que l’attaque était ratée, une marque bleue indique
+qu’un bateau a été touché à cette position et un point d’interrogation
+indique qu’aucune information n’est encore connue à cette position. Les
+grilles de chaque joueur étant visible sur le même écran, le jeu n’a pas
+beaucoup d’intérêt. On souhaite créer une version en réseau afin que
+chaque joueur puisse voir sur son propre ordinateur les seules
+informations dont il dispose sur la partie.</p>
+<h2 id="modélisation-réseau">Modélisation réseau</h2>
+<p>Nous allons nous placer dans un modèle où tous les joueurs se
+connectent sur un serveur. Le serveur orchestrera la partie entre deux
+clients. Pour simplifier, on fera les hypothèses suivantes :</p>
+<ul>
+<li>Les deux premiers clients à se connecter sur le serveur
+s’affronteront. Si d’autres clients se connectent ensuite, le serveur
+leur indique qu’il n’y a plus de place et coupe la communication.</li>
+<li>Quand la partie est terminée, le serveur coupe la communication avec
+les deux clients et acceptent à nouveau les connexions. Les deux
+prochains clients qui se connecteront joueront une partie.</li>
+</ul>
+<p>Le but de cette SAE est :</p>
+<ol type="1">
+<li>De créer un protocole textuel de communication entre le serveur et
+les clients afin de leur permettre de jouer à la bataille navale.</li>
+<li>D’implémenter un serveur et un client respectant ce protocole en se
+basant sur le code fourni.</li>
+</ol>
+<h2 id="protocole">Définition du protocole</h2>
+<p>La première partie du travail consiste à définir précisément le
+protocole que vos programmes devront respecter. Il faudra rendre votre
+travail pour le 04/11/2024. On veillera à ce que ce protocole garantisse
+que les joueurs jouent tour à tour et que les réponses données par le
+serveur au joueur (raté, touché, coulé) correspondent à la configuration
+initiale des grilles.</p>
+<p>Vous devrez rendre un document comprenant les éléments suivants :</p>
+<ul>
+<li><p>Un explication générale et non technique des différentes étapes
+de votre protocole. Des illustrations sous forme graphique seront
+appréciées. Vous y expliquerez au moins pourquoi votre protocole assure
+que chaque joueur obtient bien les résultats attendus en fonction des
+configurations de départ (on suppose que le serveur n’est pas
+malveillant).</p></li>
+<li><p>Un exemple détaillé de votre protocole sur une partie réelle.
+Vous donnerez deux exemples de grilles, une pour le joueur 1 et une pour
+le joueur 2, et expliquerez les différents échanges entre les clients et
+le serveur avant le début de la partie. Puis vous donnerez un aperçu de
+votre protocole sur au moins 5 tours de jeu pour illustrer les trois cas
+: raté, touché, coulé.</p></li>
+<li><p>Une description détaillée du protocole : le nom des différentes
+commandes, leurs paramètres éventuels et le retour attendu qui peut
+dépendre de l’état du jeu. Par exemple, un joueur ne peut pas tirer sur
+une position si ce n’est pas son tour.</p></li>
+</ul>
+<h2 id="implementation">Implémentation</h2>
+<p>Le but de l’implémentation est de vérifier en pratique le
+fonctionnement du protocole. En essayant de le mettre en oeuvre, vous
+pourrez vous rendre compte d’éventuelles limites dans votre proposition.
+Il est donc possible de modifier votre protocole pendant cette étape, en
+justifiant le changements apportés.</p>
+<p>L’objectif est de réaliser un jeu de bataille navale en réseau, les
+clients et le serveur pouvant se situer sur des machines différentes. On
+utilisera le protocole TCP, qui garantie la fiabilité de la
+communication entre le client et le serveur.</p>
+<p>Vous disposez d’exemples de code en python pour vous aider dans la
+réalisation de ce travail : - Un jeu de <a
+href="bataille_navale.py">bataille navale</a> complet en mode console. -
+Un exemple de communication bidirectionnelle entre un <a
+href="client.py">client</a> et un <a href="server.py">serveur</a> en
+TCP.</p>
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<p>Vous pouvez améliorer votre programme dans une des directions
+ci-dessous. Si vous souhaitez le faire, vous veillerez à bien expliquer
+quels changements cela a induit sur votre protocole.</p>
+<ol type="1">
+<li><p>Modifier le serveur et le protocole afin de pouvoir jouer sur une
+grille de taille paramétrable avec d’autres bateaux.</p></li>
+<li><p>Rendre le protocole le plus efficace possible, en minimisant
+l’information échangée entre le serveur et le client.</p></li>
+<li><p>Utiliser le protocole UDP au lieu de TCP pour la communication
+réseau.</p></li>
+</ol>
+<h2 id="soutenance">Soutenance</h2>
+<p>La présentation de votre travail se fera en salle TP, début janvier,
+par groupe. Il s’agira de montrer que le client et le serveur
+fonctionnent correctement et d’expliquer le détail de
+l’implémentation.</p>
+</body>
+</html>
