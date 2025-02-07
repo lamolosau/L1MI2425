@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="32" skipped="0" tests="32" time="0.395" timestamp="2024-09-26T14:16:08.729436+02:00" hostname="pc-lens-141-164.univ-artois.fr"><testcase classname="tests.test_compare" name="test_meme_image" time="0.001"><failure message="NotImplementedError">def test_meme_image():
+&gt;       nb_diff,_ = compare_files("TEST1/image1.png","TEST1/image1.png")
+
+tests/test_compare.py:4: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename1 = 'TEST1/image1.png', filename2 = 'TEST1/image1.png'
+
+    def compare_files(filename1:str, filename2:str) -&gt; tuple[int,Image]:
+        '''Compare deux fichiers image PNG et retourne le nombre de pixels différents.
+        Si ce nombre de pixels est supérieur à 0, alors l'image représentant la différence point à point de l'image est disponible dans le second membre du tuple'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/compare.py:13: NotImplementedError</failure></testcase><testcase classname="tests.test_compare" name="test_images_differentes" time="0.000"><failure message="NotImplementedError">def test_images_differentes():
+&gt;       nb_diff,image_diff = compare_files("TEST1/image1.png","TEST1/image2.png")
+
+tests/test_compare.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename1 = 'TEST1/image1.png', filename2 = 'TEST1/image2.png'
+
+    def compare_files(filename1:str, filename2:str) -&gt; tuple[int,Image]:
+        '''Compare deux fichiers image PNG et retourne le nombre de pixels différents.
+        Si ce nombre de pixels est supérieur à 0, alors l'image représentant la différence point à point de l'image est disponible dans le second membre du tuple'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/compare.py:13: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp3130.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp3130.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp31.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp31.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp3160.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp3160.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp35.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp35.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp34.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp34.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp33.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp33.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images2d" name="test_image_generation[tp32.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp32.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST4/{scene_file}')
+
+tests/test_images2d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp41-dir.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp41-dir.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[scenetd42.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'scenetd42.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp44-a.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp44-a.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp41-point.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp41-point.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[scenetd43.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'scenetd43.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp42-point.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp42-point.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp44-c.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp44-c.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp44-b.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp44-b.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp43.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp43.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp44.test]" time="0.001"><failure message="NotImplementedError">scene_file = 'tp44.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp42-dir.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp42-dir.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp44-d.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp44-d.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_images3d" name="test_image_generation[tp45.test]" time="0.000"><failure message="NotImplementedError">scene_file = 'tp45.test'
+
+    @pytest.mark.parametrize("scene_file",testdata)
+    def test_image_generation(scene_file):
+        output_file = scene_file.replace('.test','.png')
+&gt;       generer_image(f'TEST5/{scene_file}')
+
+tests/test_images3d.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+projetl1/lanceurrayons.py:20: in generer_image
+    scene_descr = lire_scene(fichier_scene)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = 'size 640 480\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_scene" name="test_scene1" time="0.001"><failure message="NotImplementedError">def test_scene1():
+&gt;       manage_scene('TEST3/test1.scene','mascene.png',307200,1,2)
+
+tests/test_scene.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_scene.py:4: in manage_scene
+    scene = lire_scene(filename)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = '# Les lignes qui commencent par # sont des commentaires\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_scene" name="test_scene2" time="0.000"><failure message="NotImplementedError">def test_scene2():
+&gt;       manage_scene('TEST3/test2.scene','mascene.png',307200,1,2)
+
+tests/test_scene.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_scene.py:4: in manage_scene
+    scene = lire_scene(filename)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = '# Les lignes qui commencent par # sont des commentaires\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_scene" name="test_scene3" time="0.001"><failure message="NotImplementedError">def test_scene3():
+&gt;       manage_scene('TEST3/test3.scene','mascene.png',307200,3,2)
+
+tests/test_scene.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_scene.py:4: in manage_scene
+    scene = lire_scene(filename)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = '# Les lignes qui commencent par # sont des commentaires\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_scene" name="test_scene4" time="0.000"><failure message="NotImplementedError">def test_scene4():
+&gt;       manage_scene('TEST3/test4.scene','mascene.png',307200,6,2)
+
+tests/test_scene.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_scene.py:4: in manage_scene
+    scene = lire_scene(filename)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = '# Les lignes qui commencent par # sont des commentaires\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_scene" name="test_scene5" time="0.001"><failure message="NotImplementedError">def test_scene5():
+&gt;       manage_scene('TEST3/test6.scene','mascene.png',786432,4,2)
+
+tests/test_scene.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_scene.py:4: in manage_scene
+    scene = lire_scene(filename)
+projetl1/scene.py:31: in lire_scene
+    gerer_ligne(scene,ligne)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+scene = {'ambient': (0, 0, 0), 'camera': {'fov': 0, 'look_at': (0, 0, 0), 'look_from': (0, 0, 0), 'up': (0, 0, 0)}, 'diffuse': (0, 0, 0), 'directional': [], ...}
+l = '# Les lignes qui commencent par # sont des commentaires\n'
+
+    def gerer_ligne(scene:dict,l:str):
+        '''Gère une ligne du fichier de description de scène'''
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/scene.py:25: NotImplementedError</failure></testcase><testcase classname="tests.test_triplets" name="test_add" time="0.000"><failure message="NotImplementedError">def test_add():
+        t1 = (1,1,0)
+        t2 = (2,3,4)
+&gt;       t3 = add(t1,t2)
+
+tests/test_triplets.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t1 = (1, 1, 0), t2 = (2, 3, 4)
+
+    def add(t1: tuple[float,float,float],t2:tuple[float,float,float])-&gt; tuple[float,float,float]:
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/triplets.py:5: NotImplementedError</failure></testcase><testcase classname="tests.test_triplets" name="test_mul" time="0.000"><failure message="NotImplementedError">def test_mul():
+        t1 = (1,1,1)
+&gt;       t2 = mul(t1,2)
+
+tests/test_triplets.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t = (1, 1, 1), d = 2
+
+    def mul(t:tuple[float,float,float],d:float)-&gt; tuple[float,float,float]:
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/triplets.py:11: NotImplementedError</failure></testcase><testcase classname="tests.test_triplets" name="test_sub" time="0.000"><failure message="NotImplementedError">def test_sub():
+        t1 = (1,1,1)
+        t2 = (2,2,2)
+&gt;       t3 = sub(t1,t2)
+
+tests/test_triplets.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t1 = (1, 1, 1), t2 = (2, 2, 2)
+
+    def sub(t1:tuple[float,float,float],t2:tuple[float,float,float])-&gt; tuple[float,float,float]:
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/triplets.py:8: NotImplementedError</failure></testcase><testcase classname="tests.test_triplets" name="test_dot" time="0.000"><failure message="NotImplementedError">def test_dot():
+        t1 = (1,1,1)
+        t2 = (2,2,2)
+&gt;       assert dot(t1,t2) == 6
+
+tests/test_triplets.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t1 = (1, 1, 1), t2 = (2, 2, 2)
+
+    def dot(t1:tuple[float,float,float],t2:tuple[float,float,float])-&gt; tuple[float,float,float]:
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/triplets.py:14: NotImplementedError</failure></testcase><testcase classname="tests.test_triplets" name="test_cross" time="0.000"><failure message="NotImplementedError">def test_cross():
+        t1 = (1,0,0)
+        t2 = (0,1,0)
+&gt;       t3 = cross(t1,t2)
+
+tests/test_triplets.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+t1 = (1, 0, 0), t2 = (0, 1, 0)
+
+    def cross(t1:tuple[float,float,float],t2:tuple[float,float,float]) -&gt; tuple[float,float,float]:
+&gt;       raise NotImplementedError
+E       NotImplementedError
+
+projetl1/triplets.py:17: NotImplementedError</failure></testcase></testsuite></testsuites>
