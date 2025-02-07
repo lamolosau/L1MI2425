@@ -1,0 +1,58 @@
+#exo1
+classe et valeur des adresses ip :
+
+11001111 00001110 00100001 01011100 -> classe c, 207.14.33.92
+00001010 00001101 01011001 01001101 -> classe a, 10.13.89.77
+
+classe et valeurs en binaire :
+207.123.53.124 -> 11001111 01111011 00110101 01111100 -> classe c
+18.9.22.69 -> 00010010 00001001 00010110 01000101 -> classe a
+
+identifiant reseau et plages d'adresses :
+192.12.69.249/30 -> identifiant 192.12.69.248, plage 192.12.69.248 - 192.12.69.251
+138.42.74.32/18 -> identifiant 138.42.64.0, plage 138.42.64.0 - 138.42.127.255
+128.36.199.3/16 -> identifiant 128.36.0.0, plage 128.36.0.0 - 128.36.255.255
+21.12.240.17/24 -> identifiant 21.12.240.0, plage 21.12.240.0 - 21.12.240.255
+
+#exo2
+masques en notation cidr :
+192.168.22.0 -> /24
+68.64.0.0 -> /10
+default -> /0
+
+prochaine etape pour :
+68.91.17.163 -> passerelle 16.24.22.2
+68.130.17.163 -> passerelle 41.2.2.1
+
+#exo3
+plus petit bloc possible pour les adresses :
+124.168.20.145, 124.168.21.13, 124.168.22.68, 124.168.23.105 -> 124.168.20.0/22
+124.168.21.13, 124.168.22.68 -> 124.168.20.0/23
+124.168.20.145, 124.168.21.13 -> 124.168.20.0/24
+
+nombre d'adresses :
+/22 -> 1024
+/23 -> 512
+/24 -> 256
+
+#exo4
+adresses absolues :
+cas 1 : /rep_www_root/page1.html, /rep_www_root/page2.html
+cas 2 : /rep_www_root/page1.html, /rep1/page2.html
+cas 3 : /rep1/page1.html, /rep_www_root/page2.html
+cas 4 : /rep11/page1.html, /rep12/page2.html
+cas 5 : /rep12/page1.html, /rep21/page2.html
+
+adresses relatives :
+cas 1 : ./page2.html
+cas 2 : ../rep1/page2.html
+cas 3 : ../../rep_www_root/page2.html
+cas 4 : ../../rep12/page2.html
+cas 5 : ../../rep21/page2.html
+
+urls absolues :
+cas 1 : http://www.l1mi.univ-artois.fr/rep_www_root/page1.html et page2.html
+cas 2 : http://www.l1mi.univ-artois.fr/rep_www_root/page1.html, http://www.l1mi.univ-artois.fr/rep1/page2.html
+cas 3 : http://www.l1mi.univ-artois.fr/rep1/page1.html, http://www.l1mi.univ-artois.fr/rep_www_root/page2.html
+cas 4 : http://www.l1mi.univ-artois.fr/rep11/page1.html, http://www.l1mi.univ-artois.fr/rep12/page2.html
+cas 5 : http://www.l1mi.univ-artois.fr/rep12/page1.html, http://www.l1mi.univ-artois.fr/rep21/page2.html
