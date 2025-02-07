@@ -1,0 +1,144 @@
+#exo1
+1. <p>ce garcon est <strong>un peu <em>farfelu</strong> mais</em> sympathique.</p>
+   -> pas valide car <strong> est ferme avant <em>, erreur de structure des balises
+
+2. <ul>
+       <li>ceci est une liste non numerotee
+       <li>car ul veut dire
+       <li>unordered list
+   </ul>
+   -> pas valide car les <li> doivent etre fermes
+
+3. <!DOCTYPE html>
+   <html lang="fr">
+   <head>
+       <meta charset="utf-8" />
+       <title> la page de toto </title>
+   </head>
+   <body>
+       toto fait du velo.
+   </body>
+   </html>
+   -> valide
+
+4. <!DOCTYPE html>
+   <html lang="fr">
+   <head>
+       <meta charset="utf-8" />
+       <title> la page de toto et titi </title>
+   </head>
+   <body>
+       <p>toto fait du velo.</p>
+       <p>et titi fait :
+           <ul>
+               <li>de la bicyclette ?</li>
+               <li>de la mobylette ?</li>
+               <li>de la trottinette ?</li>
+               <li>de la patinette ?</li>
+           </ul>
+       </p>
+   </body>
+   </html>
+   -> pas valide car <p> ne peut pas contenir un <ul>
+
+#exo2
+balises en ligne ou en bloc :
+p -> bloc
+span -> en ligne
+div -> bloc
+ul -> bloc
+li -> bloc
+img -> en ligne
+
+#exo3
+optimisation du code :
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title> ma belle page </title>
+</head>
+<body>
+    <footer>
+        <p>derniere modification : 12-12-2012</p>
+        <p>contact : prof.web@univ-artois.fr</p>
+    </footer>
+</body>
+</html>
+
+#exo4
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title> la chasse au dahut </title>
+</head>
+<body>
+    <h1>la chasse au dahut</h1>
+    <p>le dahut est un animal sauvage extremement farouche qui vit sur les monts du cantal. il ne
+       s'agit pas ici de tuer le dahut (c'est une espece protegee) mais de le photographier.</p>
+
+    <h2>preliminaires</h2>
+    <h3>conditions meteorologiques</h3>
+    <p>la chasse n’a lieu que de nuit. munissez-vous d’un bon pull. il fait frais dans le cantal.</p>
+
+    <h3>preparation du materiel</h3>
+    <ul>
+        <li>vous veillerez a disposer d’un appareil efficace pour les photos de nuit.</li>
+        <li>vous aurez avec vous un grand sac de jute.</li>
+    </ul>
+
+    <h3>lorsque le dahut apparait...</h3>
+    <ul>
+        <li>restez silencieux</li>
+        <li>lorsque le dahut est a moins de 1m. de la cache, preparez votre sac de jute et lancez-le
+            sur le dahut</li>
+        <li>lorsque le dahut sera tombe, vous aurez le temps de prendre la photo.</li>
+    </ul>
+</body>
+</html>
+
+#exo5
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title> recette de la tarte a la ricotta </title>
+</head>
+<body>
+    <h1>recette de la tarte a la ricotta</h1>
+    <p>tire du livre les recettes de ma grand-mere.</p>
+
+    <h2>ingredients</h2>
+    <h3>garniture :</h3>
+    <ol>
+        <li>6 oeufs</li>
+        <li>1 kg de ricotta</li>
+        <li>100 gr. de sucre</li>
+        <li>un sachet de sucre vanille</li>
+        <li>100 gr de pepites de chocolat</li>
+    </ol>
+    <p>battre ensemble les oeufs, le sucre et le sucre vanille. puis ajouter le fromage et
+       les pepites de chocolat. laissez reposer.</p>
+
+    <h3>pate :</h3>
+    <ol>
+        <li>2 oeufs</li>
+        <li>300 gr. de farine</li>
+        <li>100 gr. de sucre</li>
+        <li>150 gr. de beurre</li>
+        <li>un sachet de levure chimique</li>
+    </ol>
+    <p>melangez la levure, le sucre et la farine. ajoutez les oeufs et le beurre. malaxez
+       jusqu’a obtention d’une pate homogene.</p>
+
+    <h2>preparation</h2>
+    <ol>
+        <li>prechauffez votre four a 165°c.</li>
+        <li>etalez la pate, puis posez la dans le fond de deux grands moules a tartes a bords hauts.</li>
+        <li>remplissez chaque tarte avec la moitie de la garniture.</li>
+        <li>posez sur la garniture de fines lamelles de pate en les croisant.</li>
+        <li>mettez au four 35 minutes. un couteau plante dans la tarte doit ressortir propre.</li>
+    </ol>
+</body>
+</html>
