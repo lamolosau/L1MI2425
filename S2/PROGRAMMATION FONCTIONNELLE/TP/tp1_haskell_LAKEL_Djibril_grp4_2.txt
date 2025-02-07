@@ -1,0 +1,90 @@
+#exo1
+creation du fichier hello.hs avec le contenu suivant :
+
+main = putStrLn "Hello, world"
+
+compilation :
+ghc hello.hs
+
+execution :
+./hello
+
+type de la fonction main :
+main :: IO ()
+
+ce type signifie que la fonction main effectue des entrees-sorties (io), donc elle n'est pas purement fonctionnelle
+
+putStrLn affiche une chaine de caracteres a l'ecran et doit etre utilisee dans une fonction qui manipule le monde reel
+
+#exo2
+creation du fichier inverse.hs avec :
+
+inverse :: Int -> Double
+inverse x = 1 / fromIntegral x
+
+main :: IO ()
+main = print (inverse 10)
+
+compilation :
+ghc inverse.hs
+
+execution :
+./inverse
+
+erreur si on utilise putStrLn car inverse 10 est un nombre et non une chaine
+
+test avec inverse 0 :
+compilation ok mais execution erreur : division par zero
+
+test avec inverse "toto" :
+compilation echoue car le type attendu est Int
+
+#exo3
+creation du fichier flottants.hs avec :
+
+main :: IO ()
+main = print (0.0017 * 1000)
+
+execution :
+affiche 1.7 (ok)
+
+modification :
+
+main :: IO ()
+main = print (0.0017 * 100)
+
+execution :
+resultat parfois imprecis (ex : 0.17 au lieu de 0.17000000000000001)
+
+test de l'egalite :
+
+main :: IO ()
+main = print ((0.0017 * 1000) == (0.0017 * 100 * 10))
+
+execution :
+affiche False a cause des erreurs d'arrondi en virgule flottante
+
+#exo4
+creation du fichier fibo.hs avec :
+
+fibo :: Int -> Int
+fibo 0 = 0
+fibo 1 = 1
+fibo n = fibo (n-1) + fibo (n-2)
+
+main :: IO ()
+main = print (fibo 30)
+
+compilation :
+ghc fibo.hs
+
+execution :
+./fibo
+resultat : 832040 (correct)
+
+test avec fibo 40 :
+tres long a executer car l'algorithme recalcule beaucoup d'elements
+
+test avec fibo (-1) :
+fonction entre dans une recursion infinie car aucune condition d'arret pour n negatif
+
