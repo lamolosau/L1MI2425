@@ -1,0 +1,37 @@
+.player-board {
+    border: 3px solid #0066cc;
+}
+
+.enemy-board {
+    border: 3px solid #cc3300;
+}
+
+h1 {
+    color: #0066cc;
+}
+
+.layer.ships .ship {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer.effects .cell {
+    width: 52px;
+    height: 52px;
+}
+
+.layer.effects .cell img {
+    width: 52px;
+    height: 52px;
+}
+
+.ship-img {
+    filter: hue-rotate(120deg);
+}
+
+.ship-img.vertical {
+    transform: rotate(90deg);
+}

@@ -30,8 +30,6 @@ import sys
 boatSizes = {"C":5, "B":4, "D":3, "S":3, "P":2}
 gridsize  = 10
 
-# We now give functions to update and built player's datastructures:
-
 def checkGrid(grid):
     """
     Input: `grid` is a string (gridsize × gridsize) list.
@@ -64,60 +62,40 @@ def checkGrid(grid):
     """
     
     
-    dBoatPos = {} # Maps Boats names to ordered list of positions
-                  # Example: dBoatPos["P"] = [(5,8), (5,9)]
-    dPosBoat = {} # Maps positions to name of Boats
-                  # Example: dPosBoat[(5,8)] = "P"
+    dBoatPos = {}
+    dPosBoat = {}
 
-    # Check number of rows
     if len(grid) != gridsize:
         return False
         
-    # READ THE GRID
     for i,l in enumerate(grid):
-        # Check number of columns
         if len(l) != gridsize:
             return False
-        # Read the line
         for j,v in enumerate(l):
-            # A boat with letter v is on the current cell (i,j)
             if v in boatSizes.keys():
-                # First time a boat is seen, we initialise dBoatPos[v] to the empty list
                 if v not in dBoatPos:
                     dBoatPos[v] = []
-                # Add new position
                 dBoatPos[v].append((i,j))
-                # Reverse mapping: at cell (i,j), boat v is present
                 dPosBoat[(i,j)] = v
-                # No boat on the current cell, check that cell contains "." 
             elif v != ".":
                 return False
                 
-
-        # CHECK THE GRID AND SORT 
-        # Check that every boat are placed on the grid
     if dBoatPos.keys() != boatSizes.keys():
         return False
 
     for v in dBoatPos.keys():
-        # Check that the boat has the right size
         if len(dBoatPos[v]) != boatSizes[v]:
             return False
-        # Sort the positions
         dBoatPos[v].sort()
-        # Check that boat is aligned
         if len(dBoatPos[v]) > 1:
-                # Check whether the boat is x-aligned (orientation = 0) or y-aligned (orientation = 1)
-                # by comparing the two first cells
             orientation = 0
             if dBoatPos[v][0][0] == dBoatPos[v][1][0]:
                 orientation = 0
             elif dBoatPos[v][0][1] == dBoatPos[v][1][1]:
                 orientation = 1
             else:
-                return False # not aligned
-
-            # Check that the next position 
+                return False
+ 
             for k in range(len(dBoatPos[v])-1):
                 if (dBoatPos[v][k][1-orientation]+1 != dBoatPos[v][k+1][1-orientation]) or\
                    (dBoatPos[v][k][orientation] != dBoatPos[v][k+1][orientation]):
@@ -143,28 +121,12 @@ def mkGridFromString(s):
     return [[c for c in row] for row in s.strip("\n").split("\n")]
 
 def mkGridFromPos(boatPos):
-    """Builds the grid from a dictionnary containing the list of positions of each boat. Example :
-    {
-      'C': [(0, 3), (1, 3), (2, 3), (3, 3), (4, 3)],
-      'B': [(0, 6), (0, 7), (0, 8), (0, 9)],
-      'D': [(5, 1), (5, 2), (5, 3)],
-      'P': [(5, 8), (5, 9)],
-      'S': [(6, 5), (7, 5), (8, 5)]
-    }
-    /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\
-    The function will not complain if two boats sit on the same cell,
-    please use checkGrid to check that the grid is correct.
-    /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ 
-
-    """
     grid = [["." for i in range(gridsize)] for j in range(gridsize)]
     for v in boatPos:
         for (i,j) in boatPos[v]:
             grid[i][j]=v
     return grid
 
-
-# Creates a new player from its grid.
 def mkPlayer(grid):
     """Input: `grid` is a (gridsize × gridsize) list representing the
     player's grid (ideally created through mkGridFromPos or
@@ -199,15 +161,15 @@ def updateShoot(player, coord):
 
     v = player["grid"][i][j]
     if v in player["boat"]:
-        player["grid"][i][j] = "x" # shot this part of the grid
+        player["grid"][i][j] = "x"
         player["boat"][v] -= 1
-        if player["boat"][v] == 0: # the boat is sunk
+        if player["boat"][v] == 0:
             player["nboat"] -= 1
             return 2
         else:
-            return 1 # hit but not sunk
+            return 1
     else:
-        return 0 # missed
+        return 0
 
 def shootAt(player1, player2, coord):
     """Input: `player1` and `player2` are two dicts representing two
@@ -224,10 +186,8 @@ def shootAt(player1, player2, coord):
     if i>=gridsize or j>=gridsize:
         raise ValueError
 
-    # Shoot at player2 and updates
     r = updateShoot(player2, coord) 
 
-    # Update player1 history
     if r==0:
         player1["history"][i][j] = "M" 
     elif r>0:
@@ -236,9 +196,6 @@ def shootAt(player1, player2, coord):
     return r
     
 def playerStr(player):
-    """
-    Returns a string representing player grid on screen and history of moves against adversary
-    """
     colidx = ' '.join([chr(j) for j in range(65, 65+gridsize)])
     tbl = (len(colidx)+3)
 
@@ -250,15 +207,13 @@ def playerStr(player):
 
     for i in range(gridsize):
         state += f"{i}|"
-            
-        # Print grid line
+
         for j in range(gridsize):
             state += player["grid"][i][j]+" "
                     
         state += "\t\t"
         state += f"{i}|"
 
-        # Print history line
         for j in range(gridsize):
             state += player["history"][i][j]+" "
         state += "\n"
@@ -268,9 +223,6 @@ def playerStr(player):
 
 
 def parseCoord(c):
-    """
-    Parse inputs of the form B7 (returns (1,6) in this case
-    """
     if len(c) != 2 or c[0] not in [chr(j) for j in range(65, 65+gridsize)] or int(c[1]) not in range(gridsize):
         raise ValueError
     else:
@@ -279,9 +231,6 @@ def parseCoord(c):
 
 
 def parseArg(args):
-    """
-    Parse command line arguments and return dictionaries representing players grid. 
-    """
     if (len(args) != 3):
         print(f"{args[0]} grille1.txt grille2.txt")
         exit(0)
@@ -293,51 +242,175 @@ def parseArg(args):
                 players.append(mkPlayer(grid))
         return players
 
+def get_boat_info(grid):
+    visited = [[False]*gridsize for _ in range(gridsize)]
+    boat_info = []
 
+    for i in range(gridsize):
+        for j in range(gridsize):
+            if visited[i][j]:
+                continue
+
+            cell = grid[i][j]
+            if cell not in boatSizes and cell != "x":
+                continue
+
+            letter = None
+            if cell in boatSizes:
+                letter = cell
+            elif cell == "x":
+                for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:
+                    ni, nj = i + dx, j + dy
+                    if 0 <= ni < gridsize and 0 <= nj < gridsize:
+                        if grid[ni][nj] in boatSizes:
+                            letter = grid[ni][nj]
+                            break
+            if letter is None:
+                continue
+
+            size = boatSizes[letter]
+
+            orientation = None
+            if j + size <= gridsize and all(grid[i][j + k] in [letter, "x"] for k in range(size)):
+                orientation = "H"
+                coords = [(i, j + k) for k in range(size)]
+            elif i + size <= gridsize and all(grid[i + k][j] in [letter, "x"] for k in range(size)):
+                orientation = "V"
+                coords = [(i + k, j) for k in range(size)]
+            else:
+                continue
+
+            for x, y in coords:
+                visited[x][y] = True
+            boat_info.append((i, j, letter, orientation, size))
+
+    return boat_info
+
+
+def grid_to_html(grid, mask=False):
+    image_map = {
+        "C": "ship1.png",
+        "B": "ship2.png",
+        "D": "ship3.png",
+        "S": "ship4.png",
+        "P": "ship5.png",
+        "x": "fire.png",
+        "H": "fire.png",
+        "M": "missed.png",
+        "?": "fogofwar.png",
+        ".": "free.png"
+    }
+    boat_info = get_boat_info(grid)
+    
+    water_html = '''<div class="layer water">
+        ''' + '\n        '.join([''.join(['<img src="images/free.png">' for _ in range(gridsize)]) for _ in range(gridsize)]) + '''
+    </div>'''
+    
+    ships_html = '''<div class="layer ships">
+        ''' + '\n        '.join([
+        f'''<div class="cell ship" style="grid-column: {y+1} / span {size}; grid-row: {x+1};">
+            <img src="images/{image_map[letter]}" class="ship-img">
+        </div>''' if orientation == "H" else 
+        f'''<div class="cell ship" style="grid-column: {y+1}; grid-row: {x+1} / span {size};">
+            <img src="images/{image_map[letter]}" class="ship-img vertical">
+        </div>'''
+        for (x, y, letter, orientation, size) in boat_info
+    ]) + '''
+    </div>'''
+    
+    effects_html = '''<div class="layer effects">
+        ''' + '\n        '.join([
+        f'''<div class="cell">
+            {'<img src="images/fire.png">' if cell in ["x", "H"] else 
+             '<img src="images/missed.png">' if cell == "M" else 
+             '<img src="images/fogofwar.png">' if mask and cell not in ["M", "H"] else ''}
+        </div>'''
+        for i in range(gridsize)
+        for j, cell in enumerate(grid[i])
+    ]) + '''
+    </div>'''
+    
+    return f'''<div class="board">
+        {water_html}
+        {ships_html}
+        {effects_html}
+    </div>'''
+
+def generate_html(player0, player1):
+    html_template = '''<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joueur {num}</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="joueur{num}.css">
+</head>
+<body>
+    <h1>Joueur {num}</h1>
+    <div class="boards">
+        <div class="player-board">
+            <h2>Votre Plateau</h2>
+            {player_grid}
+        </div>
+        <div class="enemy-board">
+            <h2>Plateau Adversaire</h2>
+            {enemy_grid}
+        </div>
+    </div>
+</body>
+</html>'''
+
+    with open("joueur0.html", "w") as f:
+        f.write(html_template.format(
+            num=0,
+            player_grid=grid_to_html(player0["grid"]),
+            enemy_grid=grid_to_html(player0["history"], mask=True)
+        ))
+
+    with open("joueur1.html", "w") as f:
+        f.write(html_template.format(
+            num=1,
+            player_grid=grid_to_html(player1["grid"]),
+            enemy_grid=grid_to_html(player1["history"], mask=True)
+        ))
 
 def main():
-    players = parseArg(sys.argv) # load files for two players
-    current_player = 0 # current player is player 0
-    
-    c = "" # input from user
-    
-    while(c!="q"): # quit if q
-        # print state
+    players = parseArg(sys.argv)  
+    current_player = 0
+
+    generate_html(players[0], players[1])  
+
+    while True:
         print(f"JOUEUR {current_player}")
         print(playerStr(players[current_player]))
-        # end print state
 
-        # q to quit
-        while(c != "q"):
+        while True:
+            c = input("Où voulez-vous tirer (ex A0, q pour quitter)? ").strip().upper()
+            if c == "Q":
+                print("Fin du jeu.")
+                return
             try:
-                c=input("Où voulez-vous tirer (ex A0, q pour quitter)?")
-                (i,j) = parseCoord(c) # parsing coordinates into usable indices
+                (i, j) = parseCoord(c)
                 break
-            except:
-                print("Coordonnées non valides.") 
-                continue # ask until something valid is given
-        
-        if c != "q": # the game continues
-            # current player shoots the other player at position (i,j)
-            r = shootAt(players[current_player], players[1-current_player], (i,j))
-            # print the result in a human readable way
-            if r == 0:
-                print("Raté !")
-            elif r == 1:
-                print("Touché !")
-            elif r==2:
-                print("Coulé !")
+            except ValueError:
+                print("Coordonnées non valides. Essayez encore.")
 
-            # if the other player has no boat anymore, ends the game
-            if players[1-current_player]["nboat"] == 0:
-                print(f"Joueur {current_player} gagne !")
-                break
-            else:
-                # Otherwise, continue
-                input("ENTER TO CONTINUE")
-                print("\n\n")
-                # change player
-                current_player = 1-current_player
+        result = shootAt(players[current_player], players[1 - current_player], (i, j))
+        if result == 0:
+            print("Raté !")
+        elif result == 1:
+            print("Touché !")
+        elif result == 2:
+            print("Coulé !")
 
-if __name__ == '__main__':
+        if players[1 - current_player]["nboat"] == 0:
+            print(f"Joueur {current_player} gagne !")
+            break
+
+        generate_html(players[0], players[1])
+
+        current_player = 1 - current_player
+
+if __name__ == "__main__":
     main()

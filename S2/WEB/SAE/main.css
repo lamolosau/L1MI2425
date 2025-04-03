@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+}
+
+.boards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.board {
+    position: relative;
+    width: 520px;
+    height: 520px;
+}
+
+.layer.water {
+    z-index: 1;
+}
+
+.layer.ships {
+    z-index: 2;
+}
+
+.layer.effects {
+    z-index: 3;
+}
+
+.layer {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    display: grid;
+    grid-template-columns: repeat(10, 52px);
+    grid-template-rows: repeat(10, 52px);
+    pointer-events: none;
+}
+
+.player-board, .enemy-board {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
